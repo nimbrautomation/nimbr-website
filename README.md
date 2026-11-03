@@ -23,7 +23,7 @@ Statische website, klaar voor GitHub Pages of jullie eigen EU-server. Geen build
    - `aiWebhook`: ontvangt `taak`, `nu`, `tijd`, `systemen` en stuurt terug: `{"intro": "...", "stappen": ["...","...","..."], "let_op": "..."}`.
    - `leadmagnetWebhook`: ontvangt elke aanvraag voor de checklist (zie de map leadmagneet voor de mails en de flow).
    - Zet CORS aan voor jullie domein en bouw in n8n een limiet per IP-adres.
-2. **Domein**: in alle pagina's, `robots.txt` en `sitemap.xml` staat `https://nimbr.nl/`. Wijkt het domein af, zoek en vervang dat.
+2. **Domein**: in alle pagina's, `robots.txt` en `sitemap.xml` staat `https://www.nimbr.nl/`, passend bij het bestand `CNAME`. Wijkt het domein af, zoek en vervang dat.
 3. **Gegevens**: e-mailadres, telefoonnummer, KvK-nummer en de teksten tussen [haken] in privacy en voorwaarden.
 
 ## Spambescherming
@@ -36,7 +36,8 @@ Statische website, klaar voor GitHub Pages of jullie eigen EU-server. Geen build
 ## Privacy
 
 - Lettertype Inter staat lokaal in `assets/fonts` (geen Google Fonts, licentie in `LICENSE-Inter.txt`).
-- Geen cookies, geen externe scripts. Statistieken kunnen later met een cookievrije tool.
+- Google Analytics (meet-ID in `assets/analytics.js`) laadt pas nadat de bezoeker op "Accepteren" klikt (Consent Mode v2, standaard alles geweigerd). Zonder toestemming gaan er geen cookies en geen verzoeken naar Google. Via "Cookie-instellingen" in de footer kan de keuze gewijzigd worden.
+- Verder geen externe scripts.
 
 ## GitHub Pages
 

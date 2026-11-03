@@ -1176,3 +1176,13 @@ header.open ~ .fab{display:none}
 .uc-row:nth-child(3) .uc-fill{animation-delay:.5s}
 .uc-flowbox.off *,.uc-flowbox.off,.uc-result.off *,.uc-result.off{animation-play-state:paused!important}
 @media (prefers-reduced-motion:reduce){.uc-node,.uc-node .uc-icon,.uc-memory svg,.uc-fill{animation:none}}
+
+/* Cookiebanner (assets/analytics.js): twee even duidelijke keuzes */
+#cookiebar{position:fixed;left:max(16px,env(safe-area-inset-left,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;width:min(440px,calc(100vw - 32px));background:var(--white);border:1px solid var(--line);border-radius:22px;padding:22px;display:grid;gap:16px;box-shadow:0 12px 40px rgba(13,48,56,.14)}
+#cookiebar p{font-size:15px;line-height:1.5}
+#cookiebar b{color:var(--petrol);font-weight:600}
+#cookiebar a{color:var(--teal)}
+#cookiebar .cb-act{display:flex;flex-wrap:wrap;gap:10px}
+#cookiebar .btn{padding:13px 20px;font-size:14px}
+#cookiebar[hidden]{display:none}
+@media(max-width:520px){#cookiebar .btn{flex:1 1 100%;justify-content:center}}
