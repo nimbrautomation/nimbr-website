@@ -1,0 +1,14 @@
+# NIMBR
+
+> De begrijpelijke automatiseringspartner voor het MKB. NIMBR neemt terugkerend werk over met slimme workflows en AI, begrijpelijk ingericht en persoonlijk begeleid. Alles draait binnen de EU.
+
+NIMBR is opgericht door Tim Boeve en Stephan Spauwen (Lean Six Sigma). Slogan: "Minder herhaalwerk. Meer ruimte."
+
+## Pagina's
+
+- [Home](https://www.nimbr.nl/): wat NIMBR doet en voor wie
+- [Oplossingen](https://www.nimbr.nl/oplossingen.html): workflows, data-inzicht, koppelingen, documenten en AI-assistenten
+- [Resultaten](https://www.nimbr.nl/resultaten.html): cases, onder andere huuradministratie en facturen automatisch koppelen aan bankbetalingen
+- [Samenwerken](https://www.nimbr.nl/samenwerken.html): aanpak, vaste prijs, niveaus, looptijden en veelgestelde vragen
+- [Over ons](https://www.nimbr.nl/over-ons.html): team en verhaal
+- [Gratis automatiseringsscan](https://www.nimbr.nl/contact.html): gratis gesprek van 30 minuten met je top 3 automatiseringen
