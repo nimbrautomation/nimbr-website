@@ -218,3 +218,7 @@ if (bg) bg.addEventListener('click', () => { const o = hd.classList.toggle('open
 // ----- levende vastgoedapp: pauzeren buiten beeld -----
 (function(){const a=document.querySelector('.app-live');if(!a||!('IntersectionObserver' in window))return;new IntersectionObserver(es=>es.forEach(e=>a.classList.toggle('off',!e.isIntersecting)),{threshold:.2}).observe(a)})();
 (function(){if(!('IntersectionObserver' in window))return;document.querySelectorAll('.uc-flowbox,.uc-result').forEach(a=>new IntersectionObserver(es=>es.forEach(e=>a.classList.toggle('off',!e.isIntersecting)),{threshold:.2}).observe(a))})();
+
+// ----- bewegende iconen: alleen animeren in beeld -----
+(function(){const ic=document.querySelectorAll('.ia');if(!ic.length)return;if(!('IntersectionObserver' in window)){ic.forEach(i=>i.classList.add('on'));return}
+const io=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('on',e.isIntersecting)),{threshold:.3});ic.forEach(i=>io.observe(i))})();
