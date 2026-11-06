@@ -1,0 +1,68 @@
+<!--
+{
+  "titel": "Facturen automatisch koppelen aan banktransacties",
+  "slug": "facturen-koppelen-aan-banktransacties",
+  "datum": "2026-12-20",
+  "auteur": "stephan",
+  "categorie": "Per afdeling",
+  "afbeelding": "nimbr-laptop",
+  "tip": "demo",
+  "samenvatting": "Bij elke betaling de juiste factuur zoeken in verschillende mailboxen: het is precies het werk dat je wilt uitbesteden aan een digitale collega. Zo werkt het, en zo wordt het systeem steeds slimmer.",
+  "beschrijving": "Hoe je inkoopfacturen automatisch koppelt aan banktransacties: van transactie ophalen en mailboxen doorzoeken tot leren van eerdere koppelingen.",
+  "kort": "Een automatisering haalt nieuwe transacties op uit je bank, bepaalt welke een factuur nodig hebben, doorzoekt je mailboxen naar de bijbehorende factuur en koppelt die aan de juiste transactie. Door te onthouden uit welke mailbox een leverancier normaal factureert, wordt het zoeken steeds sneller en nauwkeuriger.",
+  "faq": [
+    ["Werkt dit met elke bank?", "Bij de meeste zakelijke banken kun je transacties automatisch ophalen, via een officiële koppeling of via je boekhoudpakket. Welke route het beste werkt, hangt af van je bank en je software. Dat zoeken we in de scan voor je uit."],
+    ["Wat gebeurt er als er geen factuur gevonden wordt?", "Dan komt de transactie op een korte lijst met openstaande punten. Jij of je boekhouder kan daar gericht naar kijken, of de leverancier om de factuur vragen. Ook dat verzoek kan automatisch."],
+    ["Leest de automatisering al mijn mail?", "Nee. Je spreekt vooraf af in welke mailboxen gezocht mag worden, en er wordt alleen gezocht naar berichten met facturen. Persoonlijke mail blijft buiten beeld."],
+    ["Hoeveel tijd scheelt dit?", "Dat hangt af van het aantal transacties. Bij onze klant Poopy, een webwinkel die via Revolut betaalt, scheelt het zo'n 12 uur per maand."]
+  ],
+  "gerelateerd": ["inkoopfacturen-automatisch-verwerken", "taken-administratie-automatiseren", "wat-is-een-digitale-collega"]
+}
+-->
+<p>Het is een klus die bijna elke ondernemer kent. De bank laat een betaling zien aan een leverancier, en ergens moet de bijbehorende factuur liggen. Maar waar? In de algemene mailbox, in die van inkoop, als bijlage, als downloadlink, of nog helemaal niet ontvangen. Voor één betaling is het zoeken te overzien. Voor honderd per maand niet meer.</p>
+<p>In dit artikel laten we zien hoe je dat zoekwerk automatiseert, aan de hand van een oplossing die we bouwden voor de webwinkel Poopy.</p>
+
+<h2>Waarom dit zoveel tijd kost</h2>
+<p>Het lastige zit niet in één stap, maar in de combinatie. Je moet:</p>
+<ul>
+  <li>weten welke transacties een factuur nodig hebben (een overboeking naar je eigen spaarrekening niet);</li>
+  <li>bedenken in welke mailbox die factuur zou kunnen staan;</li>
+  <li>zoeken op naam, bedrag of factuurnummer, wat niet altijd overeenkomt;</li>
+  <li>de factuur bewaren en aan de juiste transactie koppelen in je boekhouding.</li>
+</ul>
+<p>Elk van die stappen is eenvoudig. Samen, keer honderd, vreten ze uren.</p>
+
+<h2>Zo werkt de automatisering, stap voor stap</h2>
+<h3>Stap 1: transacties ophalen</h3>
+<p>De automatisering haalt regelmatig de nieuwe transacties op uit je bankomgeving of je boekhoudpakket. Bij Poopy is dat Revolut.</p>
+<h3>Stap 2: filteren</h3>
+<p>Niet elke transactie heeft een factuur nodig. Met vaste regels worden interne overboekingen, salarisbetalingen en andere bekende posten eruit gefilterd. Over blijven de betalingen waarvoor je een factuur moet hebben.</p>
+<h3>Stap 3: mailboxen doorzoeken</h3>
+<p>Voor elke overgebleven transactie zoekt de automatisering in de afgesproken mailboxen. Hij kijkt naar de naam van de leverancier, het bedrag, de datum en eventuele factuurnummers in de omschrijving.</p>
+<h3>Stap 4: herkennen en koppelen</h3>
+<p>Gevonden bijlagen worden uitgelezen. Klopt het bedrag en de leverancier, dan wordt de factuur aan de transactie gekoppeld en opgeslagen op de juiste plek. Twijfelt het systeem, dan legt het de match voor aan een mens.</p>
+<h3>Stap 5: onthouden</h3>
+<p>Dit is het slimste deel. Het systeem onthoudt uit welke mailbox een leverancier normaal factureert en hoe die factuur eruitziet. De volgende keer zoekt het eerst daar. Zo wordt de automatisering elke maand sneller en nauwkeuriger.</p>
+<!--tip-->
+
+<h2>Wat je ervoor nodig hebt</h2>
+<ul>
+  <li><strong>Toegang tot je transacties</strong>, via je bank of je boekhoudpakket.</li>
+  <li><strong>Toegang tot de mailboxen</strong> waarin facturen binnenkomen, met duidelijke afspraken over waar wel en niet gezocht mag worden.</li>
+  <li><strong>Een vaste plek</strong> waar gekoppelde facturen terechtkomen, bijvoorbeeld je boekhoudpakket of een gedeelde map.</li>
+  <li><strong>Afspraken over uitzonderingen:</strong> wie kijkt er naar transacties waarvoor geen factuur gevonden is?</li>
+</ul>
+
+<h2>Wat het oplevert</h2>
+<p>Voor Poopy scheelt de automatisering ongeveer 12 uur per maand aan zoek- en koppelwerk. Minstens zo belangrijk: de administratie is altijd bij. Er is geen stapel van drie maanden aan het eind van het kwartaal, en je boekhouder krijgt complete gegevens.</p>
+<p>Daarnaast zie je sneller welke leveranciers hun factuur niet sturen. Die kun je gericht benaderen, in plaats van dat het pas opvalt bij de btw-aangifte.</p>
+
+<h2>Waar je op moet letten</h2>
+<ul>
+  <li><strong>Begin met je grootste leveranciers.</strong> Die zijn goed voor het meeste werk en hebben meestal een vast factuurformaat.</li>
+  <li><strong>Houd een mens in de lus</strong> voor twijfelgevallen. Een automatisering die nooit twijfelt, maakt vroeg of laat een fout.</li>
+  <li><strong>Leg vast wat er gebeurt met gegevens.</strong> Facturen bevatten bedrijfsgegevens; zorg dat ze op een veilige plek binnen de EU worden verwerkt.</li>
+</ul>
+
+<h2>Zelf ervaren?</h2>
+<p>In onze interactieve demo zie je precies hoe dit werkt: je filtert transacties, laat Nimbr mailboxen doorzoeken en ziet hoe het geheugen de volgende zoekopdracht sneller maakt. Alles met fictieve gegevens, dus je kunt vrij rondkijken.</p>

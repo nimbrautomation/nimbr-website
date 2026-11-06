@@ -1,0 +1,43 @@
+# Zet elke ochtend de kennisbankartikelen online waarvan de publicatiedatum is bereikt.
+# Handmatig starten kan ook: GitHub → Actions → Kennisbank publiceren → Run workflow.
+name: Kennisbank publiceren
+
+on:
+  schedule:
+    - cron: '15 5 * * *'   # elke dag om 05:15 UTC (06:15 of 07:15 Nederlandse tijd)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency: kennisbank
+
+jobs:
+  publiceer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Artikelen bouwen
+        run: python3 _kennisbank/publiceer.py
+
+      - name: Wijzigingen online zetten
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Geen nieuwe artikelen vandaag."
+            exit 0
+          fi
+          git config user.name "NIMBR Kennisbank"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A kennisbank index.html sitemap.xml
+          git commit -m "Kennisbank: artikel gepubliceerd"
+          git push
+          # GitHub Pages opnieuw laten bouwen, zodat het artikel direct online staat
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" || true
