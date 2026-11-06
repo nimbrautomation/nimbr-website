@@ -1216,24 +1216,54 @@ header.open ~ .fab{display:none}
 .ia-steps .dot{fill:var(--teal);stroke:none;opacity:0}
 .ia-sliders circle{fill:var(--white)}
 @media (prefers-reduced-motion:no-preference){
-  .ia-steps .st{stroke-dasharray:1;animation:iaDraw 3.6s ease-in-out infinite}
-  .ia-steps .dot{animation:iaHop 3.6s ease-in-out infinite}
-  .ia-layers path{animation:iaLayer 3.6s cubic-bezier(.3,0,.3,1.4) infinite}
+  .ia-steps .st{stroke-dasharray:1;animation:iaDraw 6.5s ease-in-out infinite}
+  .ia-steps .dot{animation:iaHop 6.5s ease-in-out infinite}
+  .ia-layers path{animation:iaLayer 6.5s cubic-bezier(.3,0,.3,1) infinite}
   .ia-layers .l2{animation-name:iaLayer2}
   .ia-layers .l1{animation-name:iaLayer1}
-  .ia-sliders .k1{animation:iaSlide1 3.2s ease-in-out infinite}
-  .ia-sliders .k2{animation:iaSlide2 3.2s ease-in-out infinite}
-  .ia-sliders .k3{animation:iaSlide3 3.2s ease-in-out infinite}
+  .ia-sliders .k1{animation:iaSlide1 7s ease-in-out infinite}
+  .ia-sliders .k2{animation:iaSlide2 7s ease-in-out infinite}
+  .ia-sliders .k3{animation:iaSlide3 7s ease-in-out infinite}
   .js .ia:not(.on) *{animation-play-state:paused}
 }
 @keyframes iaDraw{0%{stroke-dashoffset:1}28%,100%{stroke-dashoffset:0}}
 @keyframes iaHop{0%,26%{opacity:0;transform:none}31%{opacity:1;transform:none}
   40%{transform:translate(2.5px,-4.5px)}48%{transform:translate(5px,-4px)}
   57%{transform:translate(7.8px,-8.5px)}65%{transform:translate(10.6px,-8px)}
-  70%{transform:translate(10.6px,-8.6px) scale(1.15)}88%{opacity:1;transform:translate(10.6px,-8px)}100%{opacity:0;transform:translate(10.6px,-8px)}}
+  70%{transform:translate(10.6px,-8px)}88%{opacity:1;transform:translate(10.6px,-8px)}100%{opacity:0;transform:translate(10.6px,-8px)}}
 @keyframes iaLayer{0%{opacity:0;transform:translateY(-5px)}12%,85%{opacity:1;transform:none}100%{opacity:0;transform:none}}
 @keyframes iaLayer2{0%,14%{opacity:0;transform:translateY(-5px)}26%,85%{opacity:1;transform:none}100%{opacity:0;transform:none}}
 @keyframes iaLayer1{0%,28%{opacity:0;transform:translateY(-6px)}42%,85%{opacity:1;transform:none}100%{opacity:0;transform:none}}
-@keyframes iaSlide1{0%,100%{transform:none}50%{transform:translateX(6px)}}
-@keyframes iaSlide2{0%,100%{transform:none}45%{transform:translateX(-7px)}75%{transform:translateX(-3px)}}
-@keyframes iaSlide3{0%,100%{transform:none}35%{transform:translateX(8px)}70%{transform:translateX(4px)}}
+@keyframes iaSlide1{0%,100%{transform:none}50%{transform:translateX(3px)}}
+@keyframes iaSlide2{0%,100%{transform:none}45%{transform:translateX(-4px)}75%{transform:translateX(-2px)}}
+@keyframes iaSlide3{0%,100%{transform:none}35%{transform:translateX(4px)}70%{transform:translateX(2px)}}
+
+/* ===== Meer rustige iconen: vertrouwen (home en Samenwerken) en oplossingen (home) ===== */
+@media (prefers-reduced-motion:no-preference){
+  .ia-shield .ck{stroke-dasharray:1;animation:iaCheck 7s ease-in-out infinite}
+  .ia-globe .mer{transform-origin:12px 12px;animation:iaSpin 9s ease-in-out infinite}
+  .ia-pulse .base{opacity:.35}
+  .ia-pulse .run{stroke-dasharray:.28 1;stroke-dashoffset:1.28;animation:iaRun 6.5s ease-in-out infinite}
+  .ia-grow .ln{stroke-dasharray:1;animation:iaCheck 7s ease-in-out infinite}
+  .ia-grow .ar{animation:iaArrow 7s ease-in-out infinite}
+  .ia-flow .a1{animation:iaNudgeL 6s ease-in-out infinite}
+  .ia-flow .a2{animation:iaNudgeR 6s ease-in-out infinite}
+  .ia-bars .b{transform-box:fill-box;transform-origin:50% 100%;animation:iaBar 7s ease-in-out infinite}
+  .ia-bars .b2{animation-delay:.35s}.ia-bars .b3{animation-delay:.7s}
+  .ia-nodes circle{fill:var(--white);transform-box:fill-box;transform-origin:center;animation:iaNode 7s ease-in-out infinite}
+  .ia-nodes .n2{animation-delay:.5s}.ia-nodes .n3{animation-delay:1s}
+  .ia-doc .t1,.ia-doc .t2{stroke-dasharray:1;animation:iaWrite 7s ease-in-out infinite}
+  .ia-doc .t2{animation-name:iaWrite2}
+  .ia-spark path{transform-box:fill-box;transform-origin:center;animation:iaTwinkle 6s ease-in-out infinite}
+}
+@keyframes iaCheck{0%,6%{stroke-dashoffset:1}24%,100%{stroke-dashoffset:0}}
+@keyframes iaSpin{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.3)}}
+@keyframes iaRun{0%{stroke-dashoffset:1.28}45%,100%{stroke-dashoffset:0}}
+@keyframes iaArrow{0%,20%{opacity:0;transform:translate(-2px,2px)}32%,100%{opacity:1;transform:none}}
+@keyframes iaNudgeL{0%,60%,100%{transform:none}75%{transform:translateX(-2px)}}
+@keyframes iaNudgeR{0%,60%,100%{transform:none}75%{transform:translateX(2px)}}
+@keyframes iaBar{0%,30%,100%{transform:none}15%{transform:scaleY(.7)}}
+@keyframes iaNode{0%,20%,100%{transform:none}10%{transform:scale(1.18)}}
+@keyframes iaWrite{0%,5%{stroke-dashoffset:1}18%,100%{stroke-dashoffset:0}}
+@keyframes iaWrite2{0%,16%{stroke-dashoffset:1}28%,100%{stroke-dashoffset:0}}
+@keyframes iaTwinkle{0%,100%{transform:none}50%{transform:rotate(14deg) scale(.9)}}
