@@ -2,9 +2,9 @@
 
 // ===== INSTELLINGEN: vul hier de webhook-adressen van jullie n8n-flows in =====
 const CONFIG = {
-  leadWebhook: '', // bijv. 'https://n8n.nimbr.nl/webhook/nimbr-aanvraag'  (ontvangt elke aanvraag)
+  leadWebhook: 'https://n8n.nimbr.nl/webhook/nimbr-aanvraag', // bijv. 'https://n8n.nimbr.nl/webhook/nimbr-aanvraag'  (ontvangt elke aanvraag)
   aiWebhook: '',   // bijv. 'https://n8n.nimbr.nl/webhook/nimbr-voorstel'  (geeft het voorstel van Nimbr terug)
-  leadmagnetWebhook: '' // bijv. 'https://n8n.nimbr.nl/webhook/nimbr-checklist'  (ontvangt elke checklist-aanvraag)
+  leadmagnetWebhook: 'https://n8n.nimbr.nl/webhook/nimbr-checklist' // bijv. 'https://n8n.nimbr.nl/webhook/nimbr-checklist'  (ontvangt elke checklist-aanvraag)
 };
 
 document.documentElement.classList.add('js');
@@ -102,11 +102,11 @@ if (bg) bg.addEventListener('click', () => { const o = hd.classList.toggle('open
     const miss = [['f-naam','je naam'],['f-bedrijf','je bedrijfsnaam'],['f-mail','een geldig e-mailadres']].filter(([id]) => !$(id).checkValidity() || !$(id).value.trim());
     if (miss.length) { er.textContent = 'Vul nog ' + miss.map(m => m[1]).join(', ') + ' in.'; $(miss[0][0]).focus(); return; }
     if (looksLikeBot($('f-website').value)) { cf.classList.add('sent'); return; } // stil negeren
-    if (!underLimit()) { er.textContent = 'Je hebt al een paar aanvragen verstuurd. We nemen snel contact op, of mail ons op hallo@nimbr.nl.'; return; }
+    if (!underLimit()) { er.textContent = 'Je hebt al een paar aanvragen verstuurd. We nemen snel contact op, of mail ons op nimbrautomation@gmail.com.'; return; }
     er.textContent = ''; const btn = cf.querySelector('button[type=submit]'); btn.disabled = true;
     const v = id => $(id).value.trim();
     const data = {bron:'formulier', datum:new Date().toISOString(), naam:v('f-naam'), bedrijf:v('f-bedrijf'), email:v('f-mail'), telefoon:v('f-tel'), medewerkers:v('f-size'), budget:v('f-budget'), taak:v('f-taak'), systemen:[...cf.querySelectorAll('input[name=sys]:checked')].map(i => i.value).join(', '), pagina:location.pathname};
-    post(CONFIG.leadWebhook, data).then(() => { countSent(); cf.classList.add('sent'); }).catch(() => { er.textContent = 'Versturen lukte niet. Mail ons op hallo@nimbr.nl of probeer het later opnieuw.'; btn.disabled = false; });
+    post(CONFIG.leadWebhook, data).then(() => { countSent(); cf.classList.add('sent'); }).catch(() => { er.textContent = 'Versturen lukte niet. Mail ons op nimbrautomation@gmail.com of probeer het later opnieuw.'; btn.disabled = false; });
   });
 })();
 
@@ -167,7 +167,7 @@ if (bg) bg.addEventListener('click', () => { const o = hd.classList.toggle('open
   async function finish() {
     $in.disabled = true; $in.placeholder = '';
     const ty = add('bot', '<i></i><i></i><i></i>', 'typing'); const ok = await save(); await wait(500); ty.remove(); pose('cheer');
-    add('bot', `<h4>Doorgezet naar Tim en Stephan</h4><dl><dt>Taak</dt><dd>${esc(S.taak)}</dd><dt>Tijd nu</dt><dd>${esc(S.tijd)} per week</dd><dt>Aanpak</dt><dd>${esc(S.aanpak || '')}</dd><dt>Winst</dt><dd>±${S.winst.toLocaleString('nl-NL')} uur per jaar</dd><dt>Contact</dt><dd>${esc(S.naam)}, ${esc(S.bedrijf)}<br>${esc(S.email)}${S.telefoon ? ' · ' + esc(S.telefoon) : ''}</dd></dl>${ok ? '' : '<p class="note">Let op: het doorsturen lukte niet. Mail ons gerust op hallo@nimbr.nl, dan pakken we het direct op.</p>'}`, 'card');
+    add('bot', `<h4>Doorgezet naar Tim en Stephan</h4><dl><dt>Taak</dt><dd>${esc(S.taak)}</dd><dt>Tijd nu</dt><dd>${esc(S.tijd)} per week</dd><dt>Aanpak</dt><dd>${esc(S.aanpak || '')}</dd><dt>Winst</dt><dd>±${S.winst.toLocaleString('nl-NL')} uur per jaar</dd><dt>Contact</dt><dd>${esc(S.naam)}, ${esc(S.bedrijf)}<br>${esc(S.email)}${S.telefoon ? ' · ' + esc(S.telefoon) : ''}</dd></dl>${ok ? '' : '<p class="note">Let op: het doorsturen lukte niet. Mail ons gerust op nimbrautomation@gmail.com, dan pakken we het direct op.</p>'}`, 'card');
     await bot('Klaar! Je hoort binnen één werkdag van ons. Ik ga alvast nadenken over je proces.');
     chips(['Nieuwe vraag stellen']); handler = () => start();
   }
