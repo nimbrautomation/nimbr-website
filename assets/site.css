@@ -1348,7 +1348,7 @@ header.open ~ .fab{display:none}
   .hright{display:grid;gap:20px;justify-items:stretch;width:100%}
   .hero-actions{display:grid;gap:10px;order:-1}
   .hero-actions .btn{justify-content:center;width:100%}
-  .kw{font-size:12px;gap:8px 22px}
+  .kw{font-size:12px;gap:8px 22px;justify-content:center}
   /* intro: rustig na elkaar binnenkomen, na de laadanimatie */
   .js .hero h1,.js .hero h1 span,.js .hero .hfoot{opacity:0;transform:translateY(14px)}
   .js .hero .giant{opacity:0;transform:translateX(8%) rotate(4deg)}
