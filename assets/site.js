@@ -39,10 +39,11 @@ function countSent() {
 
 // ----- laadanimatie (alleen homepage, één keer per bezoek) -----
 (function () {
-  const sp = $('splash'); if (!sp) return;
+  const hin = () => document.documentElement.classList.add('hin');
+  const sp = $('splash'); if (!sp) { requestAnimationFrame(hin); return; }
   let seen = false; try { seen = sessionStorage.getItem('nimbr-intro') === '1'; sessionStorage.setItem('nimbr-intro', '1'); } catch (e) {}
-  if (seen || matchMedia('(prefers-reduced-motion: reduce)').matches) { sp.remove(); return; }
-  sp.classList.add('play'); setTimeout(() => sp.classList.add('out'), 2900); setTimeout(() => sp.remove(), 3700);
+  if (seen || matchMedia('(prefers-reduced-motion: reduce)').matches) { sp.remove(); requestAnimationFrame(hin); return; }
+  sp.classList.add('play'); setTimeout(() => { sp.classList.add('out'); hin(); }, 2900); setTimeout(() => sp.remove(), 3700);
 })();
 
 // ----- header en mobiel menu -----
